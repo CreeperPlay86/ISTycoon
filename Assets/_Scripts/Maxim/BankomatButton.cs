@@ -8,7 +8,7 @@ public class BankomatButton : MonoBehaviour
 {
     public TMP_Text scoreText;
     public GameObject yama;
-    public int collectedScores = 0;
+    public int scores = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -19,15 +19,15 @@ public class BankomatButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = collectedScores.ToString();
+        scoreText.text = scores.ToString();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            collectedScores += Yama.score;
-            Yama.score = 0;
+            scores += Yama.bankedScore;
+            Yama.bankedScore = 0;
         }
     }
 }
